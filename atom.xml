@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://MouSiuJyu.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-10-15T12:54:53.909Z</updated>
+    <updated>2019-10-15T12:56:29.135Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://MouSiuJyu.github.io/"/>
     <link rel="self" href="https://MouSiuJyu.github.io//atom.xml"/>
@@ -16,7 +16,7 @@
         <link href="https://MouSiuJyu.github.io//post/sdcfcfcc">
         </link>
         <updated>2019-10-15T11:59:42.000Z</updated>
-        <content type="html"><![CDATA[<p>##sql优化</p>
+        <content type="html"><![CDATA[<h2 id="sql优化">sql优化</h2>
 <ul>
 <li>子查询优化，改为join产寻，注意是否有一对多的关系，避免数据重复。</li>
 <li>拆分大的delete和insert语句。</li>
@@ -26,9 +26,11 @@
 <li>查询不需要的记录，使用limit。</li>
 <li>多表关联和select查询，指定查询列。总取出全部列，会让索引失效。</li>
 <li>重复查询相同的数据，可以缓存数据。</li>
-<li>count查询使用count（*）效率更快。<br>
-##索引优化<br>
-###索引对性能的影响：大大减少服务器需要扫描的数据量，帮助服务器避免排序和临时表，大大提高查询速度。但是过多的索引会降低写的速度、占用磁盘空间。</li>
+<li>count查询使用count（*）效率更快。</li>
+</ul>
+<h2 id="索引优化">索引优化</h2>
+<h3 id="索引对性能的影响大大减少服务器需要扫描的数据量帮助服务器避免排序和临时表大大提高查询速度-但是过多的索引会降低写的速度-占用磁盘空间">索引对性能的影响：大大减少服务器需要扫描的数据量，帮助服务器避免排序和临时表，大大提高查询速度。但是过多的索引会降低写的速度、占用磁盘空间。</h3>
+<ul>
 <li>避免重复索引和冗余索引，过多的索引不仅影响写入效率，也影响查询效率。</li>
 <li>一个表只能有一个主键索引，但是可以有多个唯一索引。</li>
 <li>组合索引要遵循前缀原则。</li>
@@ -36,8 +38,10 @@
 <li>column is null 可以使用索引。</li>
 <li>MySQL估计使用索引更慢的话，会放弃使用索引。</li>
 <li>如果or前的列有索引，后面没有，索引将不执行。</li>
-<li>列类型是字符串，查询一定要给值加引号，否则索引失效。<br>
-##MySQL的存储引擎，myisam和innoDB的区别</li>
+<li>列类型是字符串，查询一定要给值加引号，否则索引失效。</li>
+</ul>
+<h2 id="mysql的存储引擎myisam和innodb的区别">MySQL的存储引擎，myisam和innoDB的区别</h2>
+<ul>
 <li>myisam适用于大量查询的应用，inoDB适用于写操作多的时候</li>
 <li>myisam支持的是表锁，innoDB支持的是行锁</li>
 <li>myisam支持全文检索</li>
@@ -49,17 +53,17 @@
 <li>原子性：要么全部执行，要么全部回滚</li>
 <li>一致性</li>
 <li>隔离性：多事务之前不影响</li>
-<li>持久性：对数据库的影响是永久的<br>
-##内连接，分为三类</li>
+<li>持久性：对数据库的影响是永久的</li>
 </ol>
+<h2 id="内连接分为三类">内连接，分为三类</h2>
 <ul>
 <li>等值连接：on A.id=B.id</li>
 <li>不等值连接：on A.id&gt;B.id</li>
-<li>自连接：select * from A T1 INNER JOIN A T2 ON T1.id=T2.pid<br>
-##分析sql慢查询的方法：慢查询日志，show status，desc/explian（可查询单条语句）<br>
-##分区和分库分表<br>
-###分区的场景：</li>
+<li>自连接：select * from A T1 INNER JOIN A T2 ON T1.id=T2.pid</li>
 </ul>
+<h2 id="分析sql慢查询的方法慢查询日志show-statusdescexplian可查询单条语句">分析sql慢查询的方法：慢查询日志，show status，desc/explian（可查询单条语句）</h2>
+<h2 id="分区和分库分表">分区和分库分表</h2>
+<h3 id="分区的场景">分区的场景：</h3>
 <ol>
 <li>表非常大，无法全部存在内存，热点数据和历史数据分区。</li>
 <li>数据更易维护，可以对独立的分区进行独立操作。</li>
@@ -69,19 +73,19 @@
 <em>分区表不能使用外键</em><br>
 <em>需要对现有表的结构进行修改</em><br>
 <em>所有分区必须使用相同的存储引擎</em><br>
-<em>某些存储引擎不支持分区</em><br>
-###分库分表场景：</li>
+<em>某些存储引擎不支持分区</em></li>
 </ol>
+<h3 id="分库分表场景">分库分表场景：</h3>
 <ul>
-<li>单表记录条数达到百万、千万级别时，解决表锁问题<br>
-###分表方式</li>
+<li>单表记录条数达到百万、千万级别时，解决表锁问题</li>
 </ul>
+<h3 id="分表方式">分表方式</h3>
 <ol>
 <li>水平分割：有些数据常用，有些数据不常用</li>
 <li>垂直分表：有些列常用，有些列不常用<br>
-<em>有些分表的策略基于应用层的逻辑算法，一旦逻辑算法改变，整个分表逻辑就会改变，扩展性较差。对于应用层来说，逻辑算法增加开发成本。</em><br>
-##sql查询的安全方案</li>
+<em>有些分表的策略基于应用层的逻辑算法，一旦逻辑算法改变，整个分表逻辑就会改变，扩展性较差。对于应用层来说，逻辑算法增加开发成本。</em></li>
 </ol>
+<h2 id="sql查询的安全方案">sql查询的安全方案</h2>
 <ul>
 <li>使用预处理防sql注入。</li>
 <li>写入数据库的数据要进行特殊字符的转义。</li>
