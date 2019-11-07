@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://MouSiuJyu.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-11-07T07:04:58.044Z</updated>
+    <updated>2019-11-07T14:25:35.130Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://MouSiuJyu.github.io/"/>
     <link rel="self" href="https://MouSiuJyu.github.io//atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://MouSiuJyu.github.io//images/avatar.png</logo>
     <icon>https://MouSiuJyu.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[APP接口]]></title>
+        <id>https://MouSiuJyu.github.io//post/app-jie-kou</id>
+        <link href="https://MouSiuJyu.github.io//post/app-jie-kou">
+        </link>
+        <updated>2019-11-07T07:21:26.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="什么是app接口">什么是APP接口</h1>
+<p>客户端与服务端数据的交换<br>
+大部分APP接口是通过HTTP协议通信的<br>
+<img src="https://MouSiuJyu.github.io//post-images/1573111754151.png" alt=""></p>
+<h1 id="客户端与服务端http通信">客户端与服务端HTTP通信</h1>
+<figure data-type="image" tabindex="1"><img src="https://MouSiuJyu.github.io//post-images/1573111872729.png" alt=""></figure>
+<h1 id="app接口输出格式">APP接口输出格式</h1>
+<p>code 错误码<br>
+msg  错误码对应的描述<br>
+data 接口返回的数据</p>
+<h1 id="api鉴权">API鉴权</h1>
+<p>通过composer安装JWT  (JsonWebToken)</p>
+<h1 id="数据加密生成签名">数据加密生成签名</h1>
+<p>需要生成签名的参数：</p>
+<p>1、did：设备号，即app每个设备的唯一标识</p>
+<p>2、version：版本信息，例：v1.0</p>
+<p>3、time：时间戳，这里采用的是10位的时间戳</p>
+<p>通过以上的字段，通过一定的算法生成sign，然后请求api时带上sign以及以上参数，然后服务器根据接收到的参数使用同样的方法生成sign与接收的sign进行比对，如果一致则通过。</p>
+<p>算法</p>
+<p>获取当前时间戳，为了保持app与服务器端时间一致，写了个时间获取的函数。</p>
+<p>1、使用did，version，time组装成数组</p>
+<p>2、键按照字典顺序排序</p>
+<p>3、生成did=aaaa&amp;time=123121&amp;version=v1.0</p>
+<p>4、进行加密</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[面试问题]]></title>
         <id>https://MouSiuJyu.github.io//post/mian-shi-wen-ti</id>
@@ -92,7 +124,7 @@ Graph：图，邻接矩阵</p>
         <updated>2019-10-15T11:59:42.000Z</updated>
         <content type="html"><![CDATA[<h2 id="sql优化">sql优化</h2>
 <ul>
-<li>子查询优化，改为join产寻，注意是否有一对多的关系，避免数据重复。</li>
+<li>子查询优化，改为join查寻，注意是否有一对多的关系，避免数据重复。</li>
 <li>拆分大的delete和insert语句。</li>
 <li>字段类型 NOT NULL。</li>
 <li>经常查询字段加索引。</li>
@@ -101,6 +133,7 @@ Graph：图，邻接矩阵</p>
 <li>多表关联和select查询，指定查询列。总取出全部列，会让索引失效。</li>
 <li>重复查询相同的数据，可以缓存数据。</li>
 <li>count查询使用count（*）效率更快。</li>
+<li>避免在索引列上使用计算</li>
 </ul>
 <h2 id="索引优化">索引优化</h2>
 <h3 id="索引对性能的影响大大减少服务器需要扫描的数据量帮助服务器避免排序和临时表大大提高查询速度-但是过多的索引会降低写的速度-占用磁盘空间">索引对性能的影响：大大减少服务器需要扫描的数据量，帮助服务器避免排序和临时表，大大提高查询速度。但是过多的索引会降低写的速度、占用磁盘空间。</h3>
@@ -122,7 +155,9 @@ Graph：图，邻接矩阵</p>
 <li>innoDB支持外检</li>
 <li>myisam不支持崩溃后的修复</li>
 <li>innoDB支持事物，事物有四个原则：ACID</li>
+<li>MyISAM 是非事务的存储引擎；适合用于频繁查询的应用；表锁，不会出现死锁；不支持事务。适合小数据，小并发</li>
 </ul>
+<p>innodb是支持事务的存储引擎；适合于插入和更新操作比较多的应用；设计合理的话是行锁（最大区别就在锁的级别上）；适合大数据，大并发。</p>
 <ol>
 <li>原子性：要么全部执行，要么全部回滚</li>
 <li>一致性</li>

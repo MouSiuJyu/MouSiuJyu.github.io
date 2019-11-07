@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Redis和Memcache | Gridea</title>
+<title>APP接口 | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,31 +92,43 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Redis和Memcache</h2>
-            <div class="post-date">2019-10-15</div>
+            <h2 class="post-title">APP接口</h2>
+            <div class="post-date">2019-11-07</div>
             
             <div class="post-content">
-              <h1 id="redis">Redis：</h1>
-<p>适用于对读写效率要求高，数据处理业务复杂和对安全性要求高较高的系统，会话缓存、队列、数据堆栈。</p>
-<h1 id="memcache">Memcache：</h1>
-<p>适合多读少写，大数量的情况，缓存sql语句、用户临时性数据、延迟查询、session</p>
-<h1 id="区别">区别：</h1>
-<ul>
-<li>memcache不可持久化数据，redis可持久化数据</li>
-<li>redis支持的数据类型比较丰富，String、Hash、List、Set、Zset</li>
-<li>memcache适合做缓存，redis速度较快。</li>
-<li>memcache的value只有1MB，redis最大可达1GB。</li>
-<li>memcache挂掉后数据不可恢复，redis可通过AOF恢复。</li>
-</ul>
+              <h1 id="什么是app接口">什么是APP接口</h1>
+<p>客户端与服务端数据的交换<br>
+大部分APP接口是通过HTTP协议通信的<br>
+<img src="https://MouSiuJyu.github.io//post-images/1573111754151.png" alt=""></p>
+<h1 id="客户端与服务端http通信">客户端与服务端HTTP通信</h1>
+<figure data-type="image" tabindex="1"><img src="https://MouSiuJyu.github.io//post-images/1573111872729.png" alt=""></figure>
+<h1 id="app接口输出格式">APP接口输出格式</h1>
+<p>code 错误码<br>
+msg  错误码对应的描述<br>
+data 接口返回的数据</p>
+<h1 id="api鉴权">API鉴权</h1>
+<p>通过composer安装JWT  (JsonWebToken)</p>
+<h1 id="数据加密生成签名">数据加密生成签名</h1>
+<p>需要生成签名的参数：</p>
+<p>1、did：设备号，即app每个设备的唯一标识</p>
+<p>2、version：版本信息，例：v1.0</p>
+<p>3、time：时间戳，这里采用的是10位的时间戳</p>
+<p>通过以上的字段，通过一定的算法生成sign，然后请求api时带上sign以及以上参数，然后服务器根据接收到的参数使用同样的方法生成sign与接收的sign进行比对，如果一致则通过。</p>
+<p>算法</p>
+<p>获取当前时间戳，为了保持app与服务器端时间一致，写了个时间获取的函数。</p>
+<p>1、使用did，version，time组装成数组</p>
+<p>2、键按照字典顺序排序</p>
+<p>3、生成did=aaaa&amp;time=123121&amp;version=v1.0</p>
+<p>4、进行加密</p>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://MouSiuJyu.github.io//post/shu-ju-jie-gou">
+                <a href="https://MouSiuJyu.github.io//post/mian-shi-wen-ti">
                   <h3 class="post-title">
-                    数据结构
+                    面试问题
                   </h3>
                 </a>
               </div>
