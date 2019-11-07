@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://MouSiuJyu.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-10-15T14:27:06.642Z</updated>
+    <updated>2019-11-07T07:04:16.883Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://MouSiuJyu.github.io/"/>
     <link rel="self" href="https://MouSiuJyu.github.io//atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://MouSiuJyu.github.io//images/avatar.png</logo>
     <icon>https://MouSiuJyu.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Redis和Memcache]]></title>
+        <id>https://MouSiuJyu.github.io//post/redis-he-memcache</id>
+        <link href="https://MouSiuJyu.github.io//post/redis-he-memcache">
+        </link>
+        <updated>2019-10-15T14:43:47.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="redis">Redis：</h1>
+<p>适用于对读写效率要求高，数据处理业务复杂和对安全性要求高较高的系统，会话缓存、队列、数据堆栈。</p>
+<h1 id="memcache">Memcache：</h1>
+<p>适合多读少写，大数量的情况，缓存sql语句、用户临时性数据、延迟查询、session</p>
+<h1 id="区别">区别：</h1>
+<ul>
+<li>memcache不可持久化数据，redis可持久化数据</li>
+<li>redis支持的数据类型比较丰富，String、Hash、List、Set、Zset</li>
+<li>memcache适合做缓存，redis速度较快。</li>
+<li>memcache的value只有1MB，redis最大可达1GB。</li>
+<li>memcache挂掉后数据不可恢复，redis可通过AOF恢复。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据结构]]></title>
+        <id>https://MouSiuJyu.github.io//post/shu-ju-jie-gou</id>
+        <link href="https://MouSiuJyu.github.io//post/shu-ju-jie-gou">
+        </link>
+        <updated>2019-10-15T14:33:25.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="常见的数据结构">常见的数据结构</h1>
+<p>Array：元素是相同的类型或类型的衍生。<br>
+linkedList：链表，元素之间的关系是一对一。<br>
+Stack:栈，和队列相似，储存数据先进后出，只有一个出口，只能从栈顶部增加或移除元素。<br>
+Heap：堆，叫二叉堆，一个父节点有两个子节点，每个子节点又有两个子节点。<br>
+List：线性表，由0个或多个数据元素组成的有序列，长度是元素个数，长度有限。<br>
+doubly-linked-list：双向链表。<br>
+Queue：队列，先进先出，并发中使用，可以安全地将对象从一个任务给另一个任务。<br>
+Set：保存不重复元素。<br>
+Map:字典，关联数组，也被叫做字典或键值对。<br>
+Graph：图，邻接矩阵</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MySQL知识点、语句优化、索引优化]]></title>
         <id>https://MouSiuJyu.github.io//post/sdcfcfcc</id>

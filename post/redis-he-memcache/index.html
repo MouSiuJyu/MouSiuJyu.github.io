@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Gridea</title>
+<title>Redis和Memcache | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,50 +91,40 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">Redis和Memcache</h2>
+            <div class="post-date">2019-10-15</div>
+            
+            <div class="post-content">
+              <h1 id="redis">Redis：</h1>
+<p>适用于对读写效率要求高，数据处理业务复杂和对安全性要求高较高的系统，会话缓存、队列、数据堆栈。</p>
+<h1 id="memcache">Memcache：</h1>
+<p>适合多读少写，大数量的情况，缓存sql语句、用户临时性数据、延迟查询、session</p>
+<h1 id="区别">区别：</h1>
+<ul>
+<li>memcache不可持久化数据，redis可持久化数据</li>
+<li>redis支持的数据类型比较丰富，String、Hash、List、Set、Zset</li>
+<li>memcache适合做缓存，redis速度较快。</li>
+<li>memcache的value只有1MB，redis最大可达1GB。</li>
+<li>memcache挂掉后数据不可恢复，redis可通过AOF恢复。</li>
+</ul>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://MouSiuJyu.github.io//post/redis-he-memcache">
-                      <h2 class="post-title">
-                        Redis和Memcache
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://MouSiuJyu.github.io//post/shu-ju-jie-gou">
-                      <h2 class="post-title">
-                        数据结构
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://MouSiuJyu.github.io//post/sdcfcfcc">
-                      <h2 class="post-title">
-                        MySQL知识点、语句优化、索引优化
-                      </h2>
-                    </a>
-                  </article>
-                
-              
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://MouSiuJyu.github.io//post/shu-ju-jie-gou">
+                  <h3 class="post-title">
+                    数据结构
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
