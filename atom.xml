@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://MouSiuJyu.github.io/</id>
     <title>Gridea</title>
-    <updated>2019-11-07T14:25:35.130Z</updated>
+    <updated>2019-11-14T04:11:39.674Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://MouSiuJyu.github.io/"/>
     <link rel="self" href="https://MouSiuJyu.github.io//atom.xml"/>
@@ -124,7 +124,7 @@ Graph：图，邻接矩阵</p>
         <updated>2019-10-15T11:59:42.000Z</updated>
         <content type="html"><![CDATA[<h2 id="sql优化">sql优化</h2>
 <ul>
-<li>子查询优化，改为join查寻，注意是否有一对多的关系，避免数据重复。</li>
+<li>子查询优化，改为join查询，注意是否有一对多的关系，避免数据重复。</li>
 <li>拆分大的delete和insert语句。</li>
 <li>字段类型 NOT NULL。</li>
 <li>经常查询字段加索引。</li>
